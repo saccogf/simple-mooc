@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-# import simplemooc.core.urls
+from django.conf import settings  # Import from django.conf for full settings
+from django.conf.urls.static import static  # Import to define static URLs
 
+# Define namespaces to use in .html, useful if you define same name for pages
 urlpatterns = [
     url(r'^', include('simplemooc.core.urls', namespace='core')),
+    url(r'^accounts/', include('simplemooc.accounts.urls', namespace='accounts')),
     url(r'^courses/', include('simplemooc.courses.urls', namespace='courses')),
     url(r'^admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+        )

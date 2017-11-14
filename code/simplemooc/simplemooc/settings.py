@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'simplemooc.core',
-    'simplemooc.courses'
+    'simplemooc.courses',
+    'simplemooc.accounts'
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,21 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'simplemooc', 'media')
+MEDIA_URL = '/media/'
+
+# Email
+# EMAIL_BACKEND = django.core.mail.backends.smtp.EmailBackend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Tetas <tetas@gtetas.com>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp@gmail.com'
+EMAIL_HOST_USER = 'tetas@gmail.com'
+EMAIL_HOST_PASSWORD = 'senha'
+EMAIL_PORT = 587
+
+CONTACT_EMAIL = 'contact@saccomooc.com'
+
+# Authentication settings
+LOGIN_URL = 'accounts:login'
+LOGIN_REDIRECT_URL = 'core:home'
+LOGOUT_URL = 'accounts:logout'

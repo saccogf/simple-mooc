@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from simplemooc.core import views
+from simplemooc.core import views  # Imports from INSTALLED_APPS in settings
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
