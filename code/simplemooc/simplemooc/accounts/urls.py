@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^login/$', views.login,
         {'template_name': 'accounts/login.html'}, name='login'),
     url(r'^register/$', accviews.register, name='register'),
-    url(r'^logout/$', accviews.logout, name='logout')
+    url(r'^logout/$', accviews.logout,
+        {'next_page': 'core:home'}, name='logout')
 ]
