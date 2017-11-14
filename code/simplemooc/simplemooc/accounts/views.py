@@ -8,6 +8,21 @@ from .forms import RegisterForm
 # Create your views here.
 
 
+def dashboard(request):
+    template_name = 'accounts/dashboard.html'
+    return render(request, template_name)
+
+
+def edit(request):
+    template_name = 'accounts/edit.html'
+    return render(request, template_name)
+
+
+def edit_password(request):
+    template_name = 'accounts/edit_password.html'
+    return render(request, template_name)
+
+
 def register(request):
     template_name = 'accounts/register.html'
     if request.method == 'POST':
